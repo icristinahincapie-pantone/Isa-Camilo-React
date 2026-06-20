@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 
 const images = [
-  { id: 1, title: 'Nuestro compromiso', desc: 'El día que dijimos sí por primera vez' },
-  { id: 2, title: 'Viaje a la montaña', desc: 'Descubriendo el mundo juntos' },
-  { id: 3, title: 'Atardecer en la playa', desc: 'El sol siempre brilla cuando estamos juntos' },
-  { id: 4, title: 'Familia y amigos', desc: 'Rodeados de quienes más amamos' },
-  { id: 5, title: 'Nuestra canción', desc: 'Bailando como si nadie nos viera' },
-  { id: 6, title: 'El primer hogar', desc: 'Donde comenzó nuestro sueño' },
+  { id: 1, file: '/fotos/foto 1.jpeg', title: 'Nuestro compromiso', desc: 'El día que dijimos sí por primera vez' },
+  { id: 2, file: '/fotos/foto 2.jpeg', title: 'Viaje a la montaña', desc: 'Descubriendo el mundo juntos' },
+  { id: 3, file: '/fotos/foto 3.jpg', title: 'Atardecer en la playa', desc: 'El sol siempre brilla cuando estamos juntos' },
+  { id: 4, file: '/fotos/foto 4.jpeg', title: 'Familia y amigos', desc: 'Rodeados de quienes más amamos' },
+  { id: 5, file: '/fotos/foto 5.jpg', title: 'Nuestra canción', desc: 'Bailando como si nadie nos viera' },
+  { id: 6, file: '/fotos/foto 6.jpg', title: 'El primer hogar', desc: 'Donde comenzó nuestro sueño' },
 ]
 
 export default function Gallery() {
@@ -62,7 +62,7 @@ export default function Gallery() {
             <div className="gallery-card" key={img.id}>
               <div className="gallery-card-inner">
                 <div className="gallery-img">
-                  <span>&#9825;</span>
+                  <img src={img.file} alt={img.title} />
                 </div>
                 <div className="gallery-overlay">
                   <h3>{img.title}</h3>
