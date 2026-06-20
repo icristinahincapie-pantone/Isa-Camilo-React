@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import GalleryFan from './components/ui/demo'
+import { GlassButton } from './components/ui/glass-button'
 
 function Countdown({ target }) {
   const [time, setTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
@@ -116,8 +117,10 @@ function App() {
           Por favor, confirmá tu presencia antes del 15 de octubre para que
           podamos organizar todo con el cariño que se merece.
         </p>
-        <a href="mailto:isa.camilo@email.com" className="rsvp-btn">
-          Confirmar Asistencia
+        <a href="mailto:isa.camilo@email.com" className="inline-block">
+          <GlassButton size="lg">
+            Confirmar Asistencia
+          </GlassButton>
         </a>
       </section>
 
