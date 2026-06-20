@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import Gallery from './Gallery'
+import GalleryFan from './components/ui/demo'
 
 function Countdown({ target }) {
   const [time, setTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
@@ -105,7 +105,7 @@ function App() {
 
       <div className="divider" />
 
-      <Gallery />
+      <GalleryFan />
 
       <div className="divider" />
 
