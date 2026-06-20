@@ -187,6 +187,65 @@ footer {
   border-top: 1px solid var(--sage);
 }
 
+.liquid-btn {
+  position: relative;
+  overflow: hidden;
+  border-radius: 999px;
+  z-index: 1;
+}
+
+.liquid-waves {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  overflow: hidden;
+  filter: url(#goo);
+}
+
+.liquid-wave {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  border-radius: 40%;
+  opacity: 0.1;
+}
+
+.liquid-wave-1 {
+  background: #697670;
+  animation: liquidSpin 6s linear infinite;
+}
+
+.liquid-wave-2 {
+  background: #5c7766;
+  animation: liquidSpin 8s linear infinite;
+  animation-direction: reverse;
+  opacity: 0.08;
+}
+
+.liquid-wave-3 {
+  background: #697670;
+  animation: liquidSpin 10s linear infinite;
+  opacity: 0.06;
+}
+
+.liquid-btn:hover .liquid-wave-1,
+.liquid-btn:hover .liquid-wave-2,
+.liquid-btn:hover .liquid-wave-3 {
+  opacity: 0.2;
+  transition: opacity 0.3s;
+}
+
+@keyframes liquidSpin {
+  from { transform: rotate(0deg) scale(1.1); }
+  to { transform: rotate(360deg) scale(1.1); }
+}
+
+.liquid-btn:hover {
+  background: #697670;
+}
+
 @media (max-width: 600px) {
   .nav {
     gap: 1.2rem;

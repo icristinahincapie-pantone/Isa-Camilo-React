@@ -1,70 +1,49 @@
 import * as React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
 
 function cn(...inputs: (string | undefined | null | false)[]): string {
   return inputs.filter(Boolean).join(" ");
 }
 
-const glassButtonVariants = cva(
-  "relative isolate cursor-pointer rounded-full transition-all duration-300",
-  {
-    variants: {
-      size: {
-        default: "text-base font-medium",
-        sm: "text-sm font-medium",
-        lg: "text-lg font-medium",
-        icon: "h-10 w-10",
-      },
-    },
-    defaultVariants: {
-      size: "default",
-    },
-  }
-);
-
-const glassButtonTextVariants = cva(
-  "relative block select-none tracking-tighter",
-  {
-    variants: {
-      size: {
-        default: "px-6 py-3.5",
-        sm: "px-4 py-2",
-        lg: "px-8 py-4",
-        icon: "flex h-10 w-10 items-center justify-center",
-      },
-    },
-    defaultVariants: {
-      size: "default",
-    },
-  }
-);
-
-export interface GlassButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof glassButtonVariants> {
+export interface LiquidButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   contentClassName?: string;
 }
 
-const GlassButton = React.forwardRef<HTMLButtonElement, GlassButtonProps>(
-  ({ className, children, size, contentClassName, ...props }, ref) => {
+const LiquidButton = React.forwardRef<HTMLButtonElement, LiquidButtonProps>(
+  ({ className, children, contentClassName, ...props }, ref) => {
     return (
-      <div className={cn("cursor-pointer rounded-full", className)}>
+      <div className={cn("relative inline-block cursor-pointer", className)}>
+        <svg className="absolute w-0 h-0">
+          <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+            <feColorMatrix
+              in="blur"
+              mode="matrix"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -9"
+              result="goo"
+            />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+          </filter>
+        </svg>
         <button
-          className={cn(
-            "border border-[#697670] text-[#697670] bg-transparent hover:bg-[#697670] hover:text-white",
-            glassButtonVariants({ size })
-          )}
           ref={ref}
+          className={cn(
+            "liquid-btn relative overflow-hidden rounded-full border border-[#697670] text-[#697670] transition-all duration-300 hover:text-white px-8 py-4 text-lg font-medium",
+            contentClassName
+          )}
           {...props}
         >
-          <span className={cn(glassButtonTextVariants({ size }), contentClassName)}>
-            {children}
+          <span className="liquid-waves">
+            <span className="liquid-wave liquid-wave-1" />
+            <span className="liquid-wave liquid-wave-2" />
+            <span className="liquid-wave liquid-wave-3" />
           </span>
+          <span className="relative z-10">{children}</span>
         </button>
       </div>
     );
   }
 );
-GlassButton.displayName = "GlassButton";
+LiquidButton.displayName = "LiquidButton";
 
-export { GlassButton, glassButtonVariants };
+export { LiquidButton };
