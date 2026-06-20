@@ -1,35 +1,31 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
-function Countdown() {
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
+function Countdown({ target }) {
+  const [time, setTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
 
   useEffect(() => {
-    const weddingDate = new Date('2026-12-25T18:00:00')
-
-    function update() {
-      const now = new Date()
-      const diff = weddingDate - now
-      if (diff <= 0) return
-      setTimeLeft({
+    function calc() {
+      const diff = new Date(target) - Date.now()
+      if (diff <= 0) return setTime({ days: 0, hours: 0, minutes: 0, seconds: 0 })
+      setTime({
         days: Math.floor(diff / (1000 * 60 * 60 * 24)),
         hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
         minutes: Math.floor((diff / (1000 * 60)) % 60),
         seconds: Math.floor((diff / 1000) % 60),
       })
     }
-
-    update()
-    const interval = setInterval(update, 1000)
-    return () => clearInterval(interval)
-  }, [])
+    calc()
+    const id = setInterval(calc, 1000)
+    return () => clearInterval(id)
+  }, [target])
 
   return (
-    <div className="countdown-grid">
-      {Object.entries(timeLeft).map(([key, val]) => (
-        <div key={key} className="countdown-item">
-          <span className="countdown-number">{String(val).padStart(2, '0')}</span>
-          <span className="countdown-label">{key}</span>
+    <div className="countdown">
+      {Object.entries(time).map(([k, v]) => (
+        <div className="countdown-item" key={k}>
+          <span className="countdown-number">{String(v).padStart(2, '0')}</span>
+          <span className="countdown-label">{k}</span>
         </div>
       ))}
     </div>
@@ -37,128 +33,109 @@ function Countdown() {
 }
 
 function App() {
-  const [submitted, setSubmitted] = useState(false)
-
-  function handleSubmit(e) {
-    e.preventDefault()
-    setSubmitted(true)
-  }
-
   return (
-    <div className="app">
+    <>
+      <nav className="nav">
+        <a href="#historia">Historia</a>
+        <a href="#evento">Evento</a>
+        <a href="#galeria">Galería</a>
+        <a href="#rsvp">RSVP</a>
+      </nav>
+
       <section className="hero">
-        <div className="hero-overlay" />
-        <div className="hero-ring">
-          <div className="hero-ring-inner" />
-        </div>
-        <h1 className="hero-names">
-          Isa
-          <span className="hero-ampersand">&</span>
-          Camilo
+        <div className="hero-decoration">&#10087;</div>
+        <h1>
+          Isa <span className="ampersand">&</span> Camilo
         </h1>
-        <div className="hero-line" />
-        <p className="hero-date">25 de Diciembre, 2026</p>
-        <p className="hero-subtitle">Nos Casamos</p>
-        <div className="hero-scroll">
-          <span />
-        </div>
+        <p className="subtitle">Nos casamos</p>
+        <p className="date">15 · Noviembre · 2026</p>
+        <Countdown target="2026-11-15T16:00:00" />
       </section>
 
-      <section className="countdown">
-        <h2 className="section-title">Faltan</h2>
-        <p className="section-subtitle">Para el gran día</p>
-        <Countdown />
+      <div className="divider" />
+
+      <section id="historia" className="section">
+        <h2>Nuestra Historia</h2>
+        <div className="divider" />
+        <p>
+          Todo comenzó en un café en el centro de la ciudad. Dos desconocidos,
+          una conversación que nunca terminó, y la certeza de que el destino
+          tenía algo especial preparado.
+        </p>
+        <p>
+          Desde entonces, cada día ha sido una página más en nuestra historia.
+          Hoy queremos escribir el capítulo más importante, y queremos que
+          ustedes sean parte de él.
+        </p>
       </section>
 
-      <section className="story">
-        <div className="story-content">
-          <h2 className="section-title">Nuestra Historia</h2>
-          <p className="section-subtitle">Cómo comenzó todo</p>
-          <div className="story-divider" />
-          <p className="story-text">
-            Todo comenzó con una sonrisa que cruzó la habitación. Desde ese primer momento,
-            supimos que nuestras vidas estaban destinadas a encontrarse. Cada paso del camino
-            nos ha traído hasta aquí, rodeados de amor, familia y amigos, listos para escribir
-            el capítulo más hermoso de nuestras vidas.
-          </p>
-          <div className="story-divider" />
-          <p className="story-text">
-            El 25 de diciembre de 2026, uniremos nuestras vidas en un sueño compartido,
-            celebrando el amor que nos une y la promesa de un futuro juntos.
-          </p>
-        </div>
-      </section>
+      <div className="divider" />
 
-      <section className="details">
-        <h2 className="section-title">La Celebración</h2>
-        <p className="section-subtitle">Los esperamos</p>
-        <div className="details-grid">
-          <div className="detail-card">
-            <svg className="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-              <circle cx="12" cy="9" r="2.5" />
-            </svg>
-            <h3 className="detail-title">Ceremonia</h3>
-            <p className="detail-date">25 de Diciembre, 2026</p>
-            <p className="detail-time">4:00 PM</p>
-            <p className="detail-place">Parroquia San José</p>
-            <p className="detail-address">Cra 50 # 60-10, Medellín</p>
-            <a className="detail-btn" href="https://maps.app.goo.gl" target="_blank" rel="noopener noreferrer">Ver Mapa</a>
+      <section id="evento" className="section">
+        <h2>El Gran Día</h2>
+        <div className="divider" />
+        <p>15 de Noviembre de 2026</p>
+        <p style={{ marginTop: '0.5rem', fontSize: '0.9rem', color: 'var(--gold)', letterSpacing: '0.15rem' }}>
+          Hacienda Los Arrayanes · 4:00 PM
+        </p>
+        <div className="timeline">
+          <div className="timeline-item">
+            <span className="timeline-time">4:00 PM</span>
+            <span className="timeline-desc">Recepción de invitados</span>
           </div>
-          <div className="detail-card">
-            <svg className="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-              <circle cx="12" cy="7" r="4" />
-            </svg>
-            <h3 className="detail-title">Recepción</h3>
-            <p className="detail-date">25 de Diciembre, 2026</p>
-            <p className="detail-time">6:00 PM</p>
-            <p className="detail-place">Hacienda La Casona</p>
-            <p className="detail-address">Vía Las Palmas, Km 5, Medellín</p>
-            <a className="detail-btn" href="https://maps.app.goo.gl" target="_blank" rel="noopener noreferrer">Ver Mapa</a>
+          <div className="timeline-item">
+            <span className="timeline-time">5:00 PM</span>
+            <span className="timeline-desc">Ceremonia civil</span>
+          </div>
+          <div className="timeline-item">
+            <span className="timeline-time">6:30 PM</span>
+            <span className="timeline-desc">Cóctel y apertura de bar</span>
+          </div>
+          <div className="timeline-item">
+            <span className="timeline-time">8:00 PM</span>
+            <span className="timeline-desc">Cena</span>
+          </div>
+          <div className="timeline-item">
+            <span className="timeline-time">10:00 PM</span>
+            <span className="timeline-desc">Fiesta y baile</span>
           </div>
         </div>
       </section>
 
-      <section className="gallery">
-        <h2 className="section-title">Galería</h2>
-        <p className="section-subtitle">Nuestros momentos</p>
-        <div className="gallery-grid">
-          {[1, 2, 3, 4, 5, 6].map((i) => (
-            <div key={i} className="gallery-item">
-              Foto {i}
-            </div>
+      <div className="divider" />
+
+      <section id="galeria" className="section">
+        <h2>Galería</h2>
+        <div className="divider" />
+        <p>Próximamente — fotos de nuestro viaje juntos</p>
+        <div className="gallery">
+          {[...Array(6)].map((_, i) => (
+            <div className="gallery-placeholder" key={i}>&#9825;</div>
           ))}
         </div>
       </section>
 
-      <section className="rsvp" id="rsvp">
-        <h2 className="section-title">Confirma tu Asistencia</h2>
-        <p className="section-subtitle">Cuéntanos si nos acompañarás</p>
-        {submitted ? (
-          <p className="rsvp-message">
-            Gracias por confirmar. Te esperamos con mucho amor.
-          </p>
-        ) : (
-          <form className="rsvp-form" onSubmit={handleSubmit}>
-            <input className="rsvp-input" type="text" placeholder="Nombre Completo" required />
-            <input className="rsvp-input" type="email" placeholder="Correo Electrónico" required />
-            <select className="rsvp-select" required defaultValue="">
-              <option value="" disabled>¿Asistirás?</option>
-              <option value="si">Sí, asistiré</option>
-              <option value="no">No podré asistir</option>
-            </select>
-            <input className="rsvp-input" type="number" placeholder="Número de Acompañantes" min="0" max="5" />
-            <button className="rsvp-btn" type="submit">Confirmar</button>
-          </form>
-        )}
+      <div className="divider" />
+
+      <section id="rsvp" className="section">
+        <h2>Confirmá tu Asistencia</h2>
+        <div className="divider" />
+        <p>
+          Por favor, confirmá tu presencia antes del 15 de octubre para que
+          podamos organizar todo con el cariño que se merece.
+        </p>
+        <a href="mailto:isa.camilo@email.com" className="rsvp-btn">
+          Confirmar Asistencia
+        </a>
       </section>
 
-      <footer className="footer">
-        <p className="footer-hearts">&#10084; Isa & Camilo &#10084;</p>
-        <p>25 de Diciembre de 2026</p>
+      <footer>
+        <p>Isa & Camilo · 15.11.2026</p>
+        <p style={{ marginTop: '0.5rem', fontSize: '0.75rem' }}>
+          Hecho con amor para nuestros invitados
+        </p>
       </footer>
-    </div>
+    </>
   )
 }
 
