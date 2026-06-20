@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import Gallery from './Gallery'
 
 function Countdown({ target }) {
   const [time, setTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
@@ -104,16 +105,7 @@ function App() {
 
       <div className="divider" />
 
-      <section id="galeria" className="section">
-        <h2>Galería</h2>
-        <div className="divider" />
-        <p>Próximamente — fotos de nuestro viaje juntos</p>
-        <div className="gallery">
-          {[...Array(6)].map((_, i) => (
-            <div className="gallery-placeholder" key={i}>&#9825;</div>
-          ))}
-        </div>
-      </section>
+      <Gallery />
 
       <div className="divider" />
 

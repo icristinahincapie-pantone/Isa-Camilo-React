@@ -1,10 +1,16 @@
-# 🎊 Isa & Camilo - Wedding Page
+# Isa & Camilo - Wedding Page
 
-A wedding page built with React + Vite.
+Página web de boda para Isa & Camilo. Construida con React + Vite.
 
 ## Development
 
 ```bash
 npm install
 npm run dev
+```
+
+## Build
+
+```bash
+npm run build
 ```
