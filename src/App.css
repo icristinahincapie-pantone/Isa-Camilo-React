@@ -170,9 +170,9 @@
 }
 
 .rsvp-btn:hover {
-  background: var(--dark);
+  background: #697670;
   color: white;
-  border-color: var(--dark);
+  border-color: #697670;
 }
 
 .fan-layout {
