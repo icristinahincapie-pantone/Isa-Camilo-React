@@ -6,35 +6,35 @@
   justify-content: center;
   text-align: center;
   padding: 2rem;
-  background: linear-gradient(180deg, var(--light) 0%, var(--cream) 100%);
+  background: linear-gradient(180deg, var(--light) 0%, var(--warm) 100%);
 }
 
 .hero-decoration {
   font-size: 3rem;
-  color: var(--gold);
+  color: var(--accent);
   margin-bottom: 1rem;
   letter-spacing: 0.5rem;
 }
 
 .hero h1 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Great Vibes', cursive;
   font-weight: 400;
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(3.5rem, 10vw, 7rem);
   color: var(--dark);
-  letter-spacing: 0.3rem;
+  letter-spacing: 0.1rem;
   margin-bottom: 0.5rem;
 }
 
 .hero .ampersand {
   font-style: italic;
-  color: var(--gold);
+  color: var(--accent);
 }
 
 .hero .date {
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.4rem;
-  color: var(--gold);
+  color: var(--accent);
   margin-top: 2rem;
 }
 
@@ -53,7 +53,7 @@
   display: flex;
   justify-content: center;
   gap: 2.5rem;
-  background: rgba(250, 248, 245, 0.9);
+  background: rgba(249, 197, 177, 0.85);
   backdrop-filter: blur(8px);
   z-index: 100;
 }
@@ -64,11 +64,12 @@
   font-size: 0.85rem;
   letter-spacing: 0.15rem;
   text-transform: uppercase;
+  font-family: 'Lora', serif;
   transition: color 0.3s;
 }
 
 .nav a:hover {
-  color: var(--gold);
+  color: var(--accent);
 }
 
 .section {
@@ -79,7 +80,7 @@
 }
 
 .section h2 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Lora', serif;
   font-weight: 400;
   font-size: 2.5rem;
   color: var(--dark);
@@ -96,7 +97,7 @@
 .divider {
   width: 60px;
   height: 1px;
-  background: var(--gold);
+  background: var(--sage);
   margin: 0 auto 2rem;
 }
 
@@ -115,9 +116,9 @@
 }
 
 .timeline-time {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Lora', serif;
   font-size: 1.2rem;
-  color: var(--gold);
+  color: var(--accent);
   min-width: 80px;
   font-weight: 600;
 }
@@ -139,9 +140,9 @@
 }
 
 .countdown-number {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Lora', serif;
   font-size: 3rem;
-  color: var(--gold);
+  color: var(--dark);
   display: block;
 }
 
@@ -155,10 +156,10 @@
 .rsvp-btn {
   display: inline-block;
   padding: 1rem 3rem;
-  border: 1px solid var(--gold);
+  border: 1px solid var(--accent);
   background: transparent;
-  color: var(--gold);
-  font-family: 'Inter', sans-serif;
+  color: var(--accent);
+  font-family: 'Lora', serif;
   font-size: 0.85rem;
   letter-spacing: 0.2rem;
   text-transform: uppercase;
@@ -169,8 +170,9 @@
 }
 
 .rsvp-btn:hover {
-  background: var(--gold);
+  background: var(--dark);
   color: white;
+  border-color: var(--dark);
 }
 
 .fan-layout {
@@ -202,7 +204,7 @@ footer {
   padding: 3rem 2rem;
   color: var(--text);
   font-size: 0.85rem;
-  border-top: 1px solid var(--light);
+  border-top: 1px solid var(--sage);
 }
 
 @media (max-width: 600px) {

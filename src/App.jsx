@@ -76,7 +76,7 @@ function App() {
         <h2>El Gran Día</h2>
         <div className="divider" />
         <p>15 de Noviembre de 2026</p>
-        <p style={{ marginTop: '0.5rem', fontSize: '0.9rem', color: 'var(--gold)', letterSpacing: '0.15rem' }}>
+        <p style={{ marginTop: '0.5rem', fontSize: '0.9rem', color: 'var(--dark)', letterSpacing: '0.15rem' }}>
           Hacienda Los Arrayanes · 4:00 PM
         </p>
         <div className="timeline">
