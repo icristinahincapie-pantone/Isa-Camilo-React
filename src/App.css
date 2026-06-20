@@ -6,12 +6,12 @@
   justify-content: center;
   text-align: center;
   padding: 2rem;
-  background: linear-gradient(180deg, var(--light) 0%, var(--warm) 100%);
+  background: var(--light);
 }
 
 .hero-decoration {
   font-size: 3rem;
-  color: var(--accent);
+  color: #697670;
   margin-bottom: 1rem;
   letter-spacing: 0.5rem;
 }
@@ -27,14 +27,14 @@
 
 .hero .ampersand {
   font-style: italic;
-  color: var(--accent);
+  color: #697670;
 }
 
 .hero .date {
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.4rem;
-  color: var(--accent);
+  color: #697670;
   margin-top: 2rem;
 }
 
@@ -53,7 +53,7 @@
   display: flex;
   justify-content: center;
   gap: 2.5rem;
-  background: rgba(249, 197, 177, 0.85);
+  background: rgba(223, 222, 219, 0.85);
   backdrop-filter: blur(8px);
   z-index: 100;
 }
@@ -69,7 +69,7 @@
 }
 
 .nav a:hover {
-  color: var(--accent);
+  color: #697670;
 }
 
 .section {
@@ -118,7 +118,7 @@
 .timeline-time {
   font-family: 'Lora', serif;
   font-size: 1.2rem;
-  color: var(--accent);
+  color: #697670;
   min-width: 80px;
   font-weight: 600;
 }
@@ -156,9 +156,9 @@
 .rsvp-btn {
   display: inline-block;
   padding: 1rem 3rem;
-  border: 1px solid var(--accent);
+  border: 1px solid #697670;
   background: transparent;
-  color: var(--accent);
+  color: #697670;
   font-family: 'Lora', serif;
   font-size: 0.85rem;
   letter-spacing: 0.2rem;
@@ -198,6 +198,8 @@
 @media (min-width: 1024px) {
   .fan-card { width: 320px; }
 }
+
+
 
 footer {
   text-align: center;
