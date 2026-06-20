@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import GalleryFan from './components/ui/demo'
 import { LiquidButton } from './components/ui/glass-button'
+import { MagneticText } from './components/ui/morphing-cursor'
 
 function Countdown({ target }) {
   const [time, setTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
@@ -46,11 +47,14 @@ function App() {
 
       <section className="hero">
         <div className="hero-decoration">&#10087;</div>
-        <h1>
-          Isa <span className="ampersand">&</span> Camilo
-        </h1>
+        <MagneticText
+          text="Isa & Camilo"
+          hoverText="15 · Noviembre · 2026"
+          textClassName="!font-['Great_Vibes'] !font-normal !text-[clamp(3.5rem,10vw,7rem)] !text-[#5c7766] !tracking-[0.1rem]"
+          circleTextClassName="!font-['Lora'] !font-normal !text-lg !tracking-[0.2rem] !uppercase !text-[#dfdedb]"
+          circleClassName="!bg-[#5c7766]"
+        />
         <p className="subtitle">Nos casamos</p>
-        <p className="date">15 · Noviembre · 2026</p>
         <Countdown target="2026-11-15T16:00:00" />
       </section>
 
