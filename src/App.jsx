@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import GalleryFan from './components/ui/demo'
+import TimelineCards from './components/ui/timeline-cards'
 import { LiquidButton } from './components/ui/glass-button'
 import { MagneticText } from './components/ui/morphing-cursor'
 
@@ -84,28 +85,7 @@ function App() {
         <p style={{ marginTop: '0.5rem', fontSize: '0.9rem', color: 'var(--dark)', letterSpacing: '0.15rem' }}>
           Hacienda Los Arrayanes · 4:00 PM
         </p>
-        <div className="timeline">
-          <div className="timeline-item">
-            <span className="timeline-time">4:00 PM</span>
-            <span className="timeline-desc">Recepción de invitados</span>
-          </div>
-          <div className="timeline-item">
-            <span className="timeline-time">5:00 PM</span>
-            <span className="timeline-desc">Ceremonia civil</span>
-          </div>
-          <div className="timeline-item">
-            <span className="timeline-time">6:30 PM</span>
-            <span className="timeline-desc">Cóctel y apertura de bar</span>
-          </div>
-          <div className="timeline-item">
-            <span className="timeline-time">8:00 PM</span>
-            <span className="timeline-desc">Cena</span>
-          </div>
-          <div className="timeline-item">
-            <span className="timeline-time">10:00 PM</span>
-            <span className="timeline-desc">Fiesta y baile</span>
-          </div>
-        </div>
+        <TimelineCards />
       </section>
 
       <div className="divider" />
