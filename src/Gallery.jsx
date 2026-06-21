@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 
 const images = [
-  { id: 1, file: '/fotos/foto 1.jpeg', title: 'Nuestro compromiso', desc: 'El día que dijimos sí por primera vez' },
-  { id: 2, file: '/fotos/foto 2.jpeg', title: 'Viaje a la montaña', desc: 'Descubriendo el mundo juntos' },
-  { id: 3, file: '/fotos/foto 3.jpg', title: 'Atardecer en la playa', desc: 'El sol siempre brilla cuando estamos juntos' },
-  { id: 4, file: '/fotos/foto 4.jpeg', title: 'Familia y amigos', desc: 'Rodeados de quienes más amamos' },
-  { id: 5, file: '/fotos/foto 5.jpg', title: 'Nuestra canción', desc: 'Bailando como si nadie nos viera' },
-  { id: 6, file: '/fotos/foto 6.jpg', title: 'El primer hogar', desc: 'Donde comenzó nuestro sueño' },
+  { id: 1, file: 'https://images.unsplash.com/photo-1716285360159-4161f9d251c7?w=600&h=400&fit=crop', title: 'Nuestro compromiso', desc: 'El día que dijimos sí por primera vez' },
+  { id: 2, file: 'https://images.unsplash.com/photo-1769540209843-c1e6a462b9d3?w=600&h=400&fit=crop', title: 'Viaje a la montaña', desc: 'Descubriendo el mundo juntos' },
+  { id: 3, file: 'https://images.unsplash.com/photo-1772945492325-2fc6528cb547?w=600&h=400&fit=crop', title: 'Atardecer en la playa', desc: 'El sol siempre brilla cuando estamos juntos' },
+  { id: 4, file: 'https://images.unsplash.com/photo-1756087612260-1bc23350628e?w=600&h=400&fit=crop', title: 'Familia y amigos', desc: 'Rodeados de quienes más amamos' },
+  { id: 5, file: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=400&fit=crop', title: 'Nuestra canción', desc: 'Bailando como si nadie nos viera' },
+  { id: 6, file: 'https://images.unsplash.com/photo-1529634597503-139d3726fed5?w=600&h=400&fit=crop', title: 'El primer hogar', desc: 'Donde comenzó nuestro sueño' },
 ]
 
 export default function Gallery() {

@@ -5,13 +5,13 @@ const TIMELINE_ITEMS = [
     id: 1,
     title: "Recepción de invitados",
     description: "4:00 PM - Los esperamos con un cóctel de bienvenida en los jardines de la hacienda.",
-    imageSrc: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600&h=400&fit=crop",
+    imageSrc: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=600&h=400&fit=crop",
   },
   {
     id: 2,
     title: "Ceremonia civil",
     description: "5:00 PM - El momento más esperado. Nos uniremos en matrimonio rodeados de su amor.",
-    imageSrc: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&h=400&fit=crop",
+    imageSrc: "https://images.unsplash.com/photo-1763560836989-d3636e2f82d8?w=600&h=400&fit=crop",
   },
   {
     id: 3,
@@ -23,7 +23,7 @@ const TIMELINE_ITEMS = [
     id: 4,
     title: "Cena",
     description: "8:00 PM - Disfrutaremos de una cena especial preparada para todos los invitados.",
-    imageSrc: "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=600&h=400&fit=crop",
+    imageSrc: "https://images.unsplash.com/photo-1555244162-803834f70033?w=600&h=400&fit=crop",
   },
   {
     id: 5,
